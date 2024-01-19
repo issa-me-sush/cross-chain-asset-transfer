@@ -1,0 +1,21 @@
+specVersion: 0.0.2
+apiVersion: 0.0.2
+name: cross-chain-asset-transfer
+description: "Example implementation of cross chain asset/token/credit transfer system that can be extended to gaming/defi/any asset based cross chain use cases"
+repository: https://github.com/issa-me-sush/cross-chain-asset-transfer
+dataSources:
+  - kind: ethereum
+    network: sepolia
+    event:
+      - address: "0xbb1Eafc65ebE8C28F9c304a3eEa3a09Bf2BD7Ced"
+        events: 
+           - "PointsTransferred(address,uint256,bytes)"
+        
+mapping:
+  language: wasm/assemblyscript
+  file: ./mapping.ts
+  handler: handleBlocks
+dataDestinations:
+  - kind: ethereum
+    network: sepolia
+    address: "0x70aE78290C6eF01a65a3437DD40d13bE6798fD7e"
